@@ -2,28 +2,22 @@
 #include <string>
 #include <vector>
 #include <iostream>
+
 class Player
 {
 private:
 	std::string name;
-	int mHP;
-	int cHP;
-	int mMP;
-	int cMP;
-
 	std::vector<std::string> inventory;
-
+	int lvl;   //Characters level increased by gardening and controls max energy
+	int mEN;   //Max energy
+	int cEN;   //current energy
+	int bulbs; //currency
+	
 public:
-	Player (std::string name, int mHP, int cHP, int mMP, int cMP, std::vector<std::string> inventory);
 
-	void AddItem(std::string item);
+	Player(std::string name, std::vector<std::string> inventory, int lvl, int mEN, int cEN, int bulbs);
 
-
-	void Print_Player()
-	{
-		std::cout << "Name: " << name;
-		std::cout << "HP: " << mHP << "/" << cHP;
-		std::cout << "MP: " << mMP << "/" << cMP;
-	}
+	void print_character();
+			
 };
 

@@ -1,29 +1,19 @@
 #include <iostream>
 #include "Character.h"
-#include "Inventory.h"
 #include <string>
-
-//initial global variables
-
-std::string name;
-int mHP = 100;
-int cHP = 100;
-int mMP = 20;
-int cMP = 20;
-
-std::vector<std::string> inventory;
 
 int main()
 {
-	std::cout << "|--===SOMNIUM===--|\n\n";
-	std::cout << "Please enter your characters name: ";
-	std::cin >> name;
+	std::cout << "|--===SOMNIUM GARDEN===--|\n\n";
+	
+	std::string PlayerName;
+	std::cout << "Enter your character name: ";
+	std::cin >> PlayerName;
+	Player Character(PlayerName, {}, 1, 20, 20, 1000);
 
-	std::system("cls");
-	std::cout << "Welcome to the dream, " << name;
+	Character.print_character();
+
 	//std::system("cls");
-	//initial stats
-
 	
 }
 
