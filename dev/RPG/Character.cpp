@@ -13,9 +13,11 @@ Player::Player(std::string name, std::vector<std::string> inventory, int lvl, in
 
 void Player::print_character()
 {
+	system("cls");
 	std::cout << "Name:   " << name << "\n\n";
 	std::cout << "Lvl:    " << lvl << "\n";
 	std::cout << "Energy: " << cEN << "/" << mEN << "\n";
 	std::cout << "Bulbs:  " << bulbs << std::endl;
+	system("pause");
 
 }

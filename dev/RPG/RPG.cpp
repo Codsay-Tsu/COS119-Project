@@ -2,6 +2,7 @@
 #include "Character.h"
 #include <string>
 #include "Garden.h"
+#include "MainMenu.h"
 
 int main()
 {
@@ -12,11 +13,46 @@ int main()
 	std::cin >> PlayerName;
 	Player Character(PlayerName, {}, 1, 20, 20, 1000);
 
-	Character.print_character();
+	//Character.print_character();
 
 	Garden pGarden(1, 3);
 
-	pGarden.print_garden();
+
+	bool choosing = true;
+
+	while (choosing)
+	{
+		system("cls");
+
+		std::cout << "1)   -=Display Garden Info=-\n";
+		std::cout << "2) -=Display Character Info=-\n";
+		std::cout << "3)          -=Exit=-\n";
+
+		int currentChoice;
+		std::cin >> currentChoice;
+		if (currentChoice == 1)
+		{
+			system("cls");
+			pGarden.print_garden();
+		}
+		else if(currentChoice == 2)
+		{
+
+			system("cls");
+			Character.print_character();
+		}
+		else if (currentChoice == 3)
+		{
+			system("cls");
+			choosing = false;
+		}
+		else
+		{
+			std::cout << "PLEASE ENTER A VALID MENU OPTION\n";
+			system("pause");
+		}
+	}
+	//pGarden.print_garden();
 
 	//std::system("cls");
 	

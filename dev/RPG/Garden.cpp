@@ -10,6 +10,8 @@ Garden::Garden(int GardenLvl, int MaxPlots)
 
 void Garden::print_garden()
 {
+	system("cls");
 	std::cout << "Garden Level: " << GardenLvl << "\n";
 	std::cout << "MaxPlots:     " << MaxPlots << "\n";
+	system("pause");
 }
