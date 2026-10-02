@@ -17,4 +17,5 @@ void Player::print_character()
 	std::cout << "Lvl:    " << lvl << "\n";
 	std::cout << "Energy: " << cEN << "/" << mEN << "\n";
 	std::cout << "Bulbs:  " << bulbs << std::endl;
+
 }

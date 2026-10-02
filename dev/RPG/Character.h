@@ -8,7 +8,7 @@ class Player
 private:
 	std::string name;
 	std::vector<std::string> inventory;
-	int lvl;   //Characters level increased by gardening and controls max energy
+	int lvl;   //Characters level increased by gardening and controls max energy as well as crops able to purchase
 	int mEN;   //Max energy
 	int cEN;   //current energy
 	int bulbs; //currency
