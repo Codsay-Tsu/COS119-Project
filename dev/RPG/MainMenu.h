@@ -5,7 +5,5 @@ private:
 
 public:
 
-	MainMenu(int cursor);
-
 };
 

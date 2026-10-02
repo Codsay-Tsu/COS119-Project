@@ -13,10 +13,7 @@ int main()
 	std::cin >> PlayerName;
 	Player Character(PlayerName, {}, 1, 20, 20, 1000);
 
-	//Character.print_character();
-
 	Garden pGarden(1, 3);
-
 
 	bool choosing = true;
 
@@ -52,9 +49,6 @@ int main()
 			system("pause");
 		}
 	}
-	//pGarden.print_garden();
-
-	//std::system("cls");
-	
+		
 }
 
