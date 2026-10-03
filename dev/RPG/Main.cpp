@@ -1,8 +1,7 @@
 #include <iostream>
-#include "Character.h"
+#include "Player.h"
 #include <string>
 #include "Garden.h"
-#include "MainMenu.h"
 
 int main()
 {

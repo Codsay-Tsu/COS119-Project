@@ -1,4 +1,4 @@
-#include "Character.h"
+#include "Player.h"
 #include <iostream>
 
 Player::Player(std::string name, std::vector<std::string> inventory, int lvl, int mEN, int cEN, int bulbs)
