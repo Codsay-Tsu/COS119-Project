@@ -1,31 +1,8 @@
-# 🚀 Welcome to Project & Portfolio!
-
-This repository will be used to keep track of research and development conducted in this class. Follow the instructions below to get started.
-cos
-### Getting Started
-
-**1.** Review the [About](./docs/01_about/README.md) README and all of the links it provides.
-
-**2.** Review the documentation and [Getting Started](./docs/02_getting_started/README.md) steps in this repository's docs folder.
-
-**3.** Attend the first Live Lecture to see a live setup demo. If you are unable to attend, make sure to watch the archive.
-
-### Next Steps...
-
-After completing the above steps, feel free to begin updating this readme where indicated below. Remember to update this document each week to receive proper credit for the weekly Milestone assignment.
-
-<br>
-
-> ❗️ &nbsp; Now that you have read to this point, go ahead and delete this sentence and everything above it.
-
-<br>
-
 # Project & Portfolio 1
 
 ### Nicholas Childress
 
 Hello my name is [Nicholas Childress]. I am a student from [Bowling Green, KY]. The purpose of this repository is to practice development using version control. This work will help me begin to build a portfolio of skills and accomplishment that can be shared in the future.
-
 <br>
 
 ## 📢 &nbsp; Weekly Stand Up
@@ -44,7 +21,13 @@ Each week I will summarize my milestone activity and progress by writing a stand
 
 ### Week 1
 
-Replace this paragraph with your stand up for this week. Use the prompts above to summarize your most recent milestone activity and work.
+Created a flow chart to help myself visualize better on how to begin my project. I began writing the base code for my project Garden mini game
+
+I ran into lots of challenges with my classes I created and figuring out how to utilize them in my Main.cpp
+
+With the struggle of getting those classes to work however I feel like i've gained a much better understanding and was able to create a second class and utlize it much easier and quicker while creating a menu as well as user input validation.
+
+Next I plan on delving further into my inventory and shop as well as the functionality of my project. Start fleshing out the bare bones inner workings and giving it some life
 
 ### Week 2
 
