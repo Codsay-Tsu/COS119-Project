@@ -1,31 +1,23 @@
 #include "Shop.h"
-#include <string>
-#include <vector>
 #include <iostream>
-#include "inventory.h"
-#include "Player.h"
 
-void Shop::PrintShop(int shopLvl, int bulbs, Player Character)//might need to remove player charactyer trying to figure out how to add character stats when adding items
+Shop::Shop()
 {
-	system("cls");
-	bool choosing = true;
-	std::string choice;
+    stock.push_back(Item(1, 5, "Kale Seed", 1));
+    stock.push_back(Item(1, 8, "Tomato Seed", 1));
+    stock.push_back(Item(2, 12, "Green Bean Seed", 1));
+}
 
-	while (choosing)
-	{
-		if (shopLvl == 1)
-		{
-			
-			std::cout << "1.) Kale        100 Bulbs" << std::endl;
-			std::cout << "2.) Tomatoe     200 Bulbs" << std::endl;
-			std::cout << "3.) Green Bean  300 Bulbs" << std::endl;
-			
+void Shop::ShowStock() const
+{
+    std::cout << "--- Shop ---\n";
+    for (int i = 0; i < stock.size(); i++)
+    {
+        std::cout << i + 1 << ") " << stock[i].GetName() << " - " << "cost:" << stock[i].GetValue() << "\n";
+    }
+}
 
-			if (choice == "1")
-			{
-				bulbs = bulbs - 100;
-				
-			}
-		}
-	}
+Item Shop::BuyItem(int index)
+{
+    return stock[index];
 }

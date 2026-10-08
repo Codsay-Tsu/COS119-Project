@@ -1,12 +1,18 @@
 #pragma once
+#include <vector>
+#include "Item.h"
+
 class Shop
 {
-	int shopLvl;
+private:
+    std::vector<Item> stock;
 
 public:
+    Shop();
 
-	Shop (int shopLvl);
-	void PrintShop(int shopLvl, int bulbs, Player Character);
+    void ShowStock() const;
+    Item BuyItem(int index);
+
+    int StockCount() const { return stock.size(); }
 
 };
-
