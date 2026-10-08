@@ -17,6 +17,7 @@ void Shop::ShowStock() const
     }
 }
 
+
 Item Shop::BuyItem(int index)
 {
     return stock[index];
