@@ -2,6 +2,7 @@
 #include "Player.h"
 #include <string>
 #include "Garden.h"
+#include "inventory.h"
 
 int main()
 {
@@ -24,20 +25,20 @@ int main()
 		std::cout << "2) -=Display Character Info=-\n";
 		std::cout << "3)          -=Exit=-\n";
 
-		int currentChoice;
+		std::string currentChoice;
 		std::cin >> currentChoice;
-		if (currentChoice == 1)
+		if (currentChoice == "1")
 		{
 			system("cls");
 			pGarden.print_garden();
 		}
-		else if(currentChoice == 2)
+		else if(currentChoice == "2")
 		{
 
 			system("cls");
 			Character.print_character();
 		}
-		else if (currentChoice == 3)
+		else if (currentChoice == "3")
 		{
 			system("cls");
 			choosing = false;
