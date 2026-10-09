@@ -10,7 +10,7 @@ Shop::Shop()
 
 void Shop::ShowStock() const
 {
-    std::cout << "--- Shop ---\n";
+    std::cout << "=== Shop ===\n";
     for (int i = 0; i < stock.size(); i++)
     {
         std::cout << i + 1 << ") " << stock[i].GetName() << " - " << "cost:" << stock[i].GetValue() << "\n";
