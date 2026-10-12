@@ -1,23 +1,27 @@
 #pragma once
 #include <string>
 #include <vector>
-#include <iostream>
+#include "Item.h"
 
 class Player
 {
 private:
-	std::string name;
-	std::vector<std::string> inventory;
-	int lvl;   //Characters level increased by gardening and controls max energy as well as crops able to purchase
-	int mEN;   //Max energy
-	int cEN;   //current energy
-	int bulbs; //currency
-	
+    std::string name;
+    std::vector<Item> inventory;   // REAL inventory
+    int lvl;
+    int mEN;
+    int cEN;
+    int bulbs;
+
 public:
+    Player(std::string name, int lvl, int mEN, int cEN, int bulbs);
 
-	Player(std::string name, std::vector<std::string> inventory, int lvl, int mEN, int cEN, int bulbs);
+    void print_character();
+    void print_inventory();
 
-	void print_character();
-			
+    void AddItem(const Item& item);
+    bool SpendBulbs(int amount);
+
+    int GetBulbs() const { return bulbs; }//for displaying current amount of bulbs player has in the shop
+
 };
-
