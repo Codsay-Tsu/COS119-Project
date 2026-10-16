@@ -25,12 +25,12 @@ int main()
         system("cls");
 
         std::cout << "1) Display Garden Info\n";
-       // std::cout << "2) Go to garden plots";
-        std::cout << "2) Display Character Info\n";
-        std::cout << "3) Visit Shop\n";
-        std::cout << "4) View Inventory\n";
-        std::cout << "5) Explanation\n";
-        std::cout << "6) Exit\n\n";
+        std::cout << "2) Go to garden plots\n";
+        std::cout << "3) Display Character Info\n";
+        std::cout << "4) Visit Shop\n";
+        std::cout << "5) View Inventory\n";
+        std::cout << "6) Explanation\n";
+        std::cout << "7) Exit\n\n";
 
         std::string currentChoice;
         std::cin >> currentChoice;
@@ -42,10 +42,15 @@ int main()
         }
         else if (currentChoice == "2")
         {
+            std::cout << "\nComing Soon!";
+            system("pause");
+        }
+        else if (currentChoice == "3")
+        {
             system("cls");
             Character.print_character();
         }
-        else if (currentChoice == "3")
+        else if (currentChoice == "4")
         {
             system("cls");
             std::cout << "Bulbs: " << Character.GetBulbs() << "\n\n";
@@ -74,11 +79,11 @@ int main()
             system("pause");
 
         }
-        else if (currentChoice == "4")
+        else if (currentChoice == "5")
         {
             Character.print_inventory();
         }
-        else if (currentChoice == "5")
+        else if (currentChoice == "6")
         {
             std::cout << "Welcome to Somnium Garden " << PlayerName << "!\n\n";
             std::cout << "There is still a lot of work to be done, but here is a breif explanation of statistics and features (MOST OF WHICH ARE NOT IMPLIMENTED YET)\n\n";
@@ -88,7 +93,7 @@ int main()
             std::cout << "Max Plots - Current amount of plots you have available to you for planting seeds which you can purchase at the shop for Bulbs" << std::endl;
             system("pause");
         }
-        else if (currentChoice == "6")
+        else if (currentChoice == "7")
         {
             choosing = false;
         }
