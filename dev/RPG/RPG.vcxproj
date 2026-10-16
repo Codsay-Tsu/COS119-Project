@@ -24,6 +24,7 @@
     <ProjectGuid>{957b0ff5-5ef9-4258-a257-482750e0c05b}</ProjectGuid>
     <RootNamespace>RPG</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Somnium Garden</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

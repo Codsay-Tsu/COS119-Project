@@ -11,7 +11,7 @@ public:
 
         while (true)
         {
-            std::cout << "Enter a choice (" << min << " to " << max << "): ";
+            //std::cout << "Enter a choice (" << min << " to " << max << "): ";
 
             if (!(std::cin >> value))
             {

@@ -25,6 +25,7 @@ int main()
         system("cls");
 
         std::cout << "1) Display Garden Info\n";
+       // std::cout << "2) Go to garden plots";
         std::cout << "2) Display Character Info\n";
         std::cout << "3) Visit Shop\n";
         std::cout << "4) View Inventory\n";
@@ -51,7 +52,7 @@ int main()
             shop.ShowStock();
 
             std::cout << "\nChoose item to buy (0 to cancel): ";
-            int choice = Helper::GetInt(1, shop.StockCount());
+            int choice = Helper::GetInt(0, shop.StockCount());
 
             if (choice == 0)
             {
