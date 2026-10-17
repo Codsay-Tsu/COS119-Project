@@ -1,35 +1,34 @@
 #pragma once
 #include <iostream>
-#include <limits>
+#include <string>
 
-class Helper//Class to help me with user validation
+class Helper
 {
 public:
     static int GetInt(int min, int max)
     {
-        int value;
+        std::string input;
 
         while (true)
         {
-            //std::cout << "Enter a choice (" << min << " to " << max << "): ";
+            std::getline(std::cin, input);
 
-            if (!(std::cin >> value))
+            try
             {
-                // User typed something not a number
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                int value = std::stoi(input);
+
+                if (value < min || value > max)
+                {
+                    std::cout << "Please enter a valid option.\n";
+                    continue;
+                }
+
+                return value;
+            }
+            catch (...)
+            {
                 std::cout << "Invalid input. Please enter a number.\n";
-                continue;
             }
-
-            if (value < min || value > max)
-            {
-                std::cout << "Please enter a valid option.\n";
-                continue;
-            }
-
-            // Valid number
-            return value;
         }
     }
 };
