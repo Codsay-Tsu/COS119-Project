@@ -17,7 +17,7 @@ public:
             {
                 int value = std::stoi(input);
 
-                if (value < min || value > max)
+                if (value < min || value > max)//Range 
                 {
                     std::cout << "Please enter a valid option.\n";
                     continue;
