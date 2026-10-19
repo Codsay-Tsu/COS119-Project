@@ -1,7 +1,7 @@
 #include "Garden.h"
 #include <iostream>
 
-Garden::Garden(int level, int plotCount)
+Garden::Garden(int level, int plotCount)//Take an extra look at this
 {
     this->level = level;
 
