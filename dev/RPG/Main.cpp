@@ -32,7 +32,7 @@ int main()
         std::cout << "5) View Inventory\n";
         std::cout << "6) Explanation\n";
         std::cout << "7) Exit\n\n";
-        std::cout << "8) Save\n";
+        std::cout << "8) Rest For The Day\n";
         std::cout << "9) Load\n";
 
         std::string currentChoice;
@@ -207,6 +207,20 @@ int main()
         else if (currentChoice == "7")
         {
             choosing = false;
+        }
+
+        else if (currentChoice == "8")
+        {
+            Character.Rest();
+
+            pGarden.AdvanceDay();
+
+            std::cout << "You rest for the night.\n";
+
+            std::cout << "Day " << pGarden.GetCurrentDay() << " begins.\n";
+
+            system("pause");
+
         }
         else
         {

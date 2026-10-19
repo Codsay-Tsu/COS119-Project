@@ -1,16 +1,37 @@
 #include "Plant.h"
 
-Plant::Plant(
-    std::string name,
-    int growthDays,
-    int sellValue)
+std::string Plant::GetName() const
+{
+    return name;
+}
+
+Plant::Plant(std::string name, int growthDays, int sellValue)
 {
     this->name = name;
     this->growthDays = growthDays;
     this->sellValue = sellValue;
+
+    currentGrowth = 0;
+
+    wateredToday = false;
 }
 
-std::string Plant::GetName() const
+void Plant::AdvanceDay()
 {
-    return name;
+    currentGrowth++;
+}
+
+bool Plant::IsGrown() const
+{
+    return currentGrowth >= growthDays;
+}
+
+int Plant::GetCurrentGrowth() const
+{
+    return currentGrowth;
+}
+
+int Plant::GetGrowthDays() const
+{
+    return growthDays;
 }

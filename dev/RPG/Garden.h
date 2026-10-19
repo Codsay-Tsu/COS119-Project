@@ -7,7 +7,7 @@ class Garden
 private:
 
 	int level;
-
+	int currentDay;
 	std::vector<Plot> plots;
 
 public:
@@ -21,5 +21,9 @@ public:
 	Plot& GetPlot(int index);
 
 	int GetPlotCount() const;
+
+	int GetCurrentDay() const;
+
+	void AdvanceDay();
 };
 

@@ -34,4 +34,5 @@ public:
 
     int GetCurrentEnergy() const;
     
+    void Rest();
 };

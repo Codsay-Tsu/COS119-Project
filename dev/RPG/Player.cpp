@@ -110,3 +110,8 @@ int Player::GetCurrentEnergy() const
 {
     return cEN;
 }
+
+void Player::Rest()
+{
+    cEN = mEN;
+}

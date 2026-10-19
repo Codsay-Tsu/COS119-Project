@@ -24,6 +24,14 @@ void Plot::DisplayPlot() const
     }
     else
     {
-        std::cout << plantedCrop->GetName();
+        std::cout << plantedCrop->GetName() << " (" << plantedCrop->GetCurrentGrowth() << "/" << plantedCrop->GetGrowthDays() << ")";
+    }
+}
+
+void Plot::AdvanceDay()
+{
+    if (plantedCrop != nullptr)
+    {
+        plantedCrop->AdvanceDay();
     }
 }

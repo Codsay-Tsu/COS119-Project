@@ -17,4 +17,7 @@ public:
     void PlantCrop(Plant* crop);
 
     void DisplayPlot() const;
+
+    void AdvanceDay();
 };
+

@@ -13,15 +13,12 @@ Garden::Garden(int level, int plotCount)
 
 void Garden::print_garden()
 {
-    std::cout << "Garden Level: "
-        << level
-        << "\n\n";
+    std::cout << "Current Day: " << currentDay << "\n";
+    std::cout << "Garden Level: " << level << "\n\n";
 
     for (int i = 0; i < plots.size(); i++)
     {
-        std::cout << "Plot "
-            << i + 1
-            << ": ";
+        std::cout << "Plot " << i + 1 << ": ";
 
         plots[i].DisplayPlot();
 
@@ -39,4 +36,19 @@ Plot& Garden::GetPlot(int index)
 int Garden::GetPlotCount() const
 {
     return plots.size();
+}
+
+int Garden::GetCurrentDay() const
+{
+    return currentDay;
+}
+
+void Garden::AdvanceDay()
+{
+    currentDay++;
+
+    for (auto& plot : plots)
+    {
+        plot.AdvanceDay();
+    }
 }
