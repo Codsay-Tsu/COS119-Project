@@ -25,6 +25,10 @@ void Plot::DisplayPlot() const
     else
     {
         std::cout << plantedCrop->GetName() << " (" << plantedCrop->GetCurrentGrowth() << "/" << plantedCrop->GetGrowthDays() << ")";
+        if (plantedCrop->IsWatered())
+        {
+            std::cout << " [WATERED]";
+        }
     }
 }
 
@@ -44,3 +48,12 @@ void Plot::WaterPlant()
     }
 }
 
+bool Plot::IsWatered() const
+{
+    if (plantedCrop == nullptr)
+    {
+        return false;
+    }
+
+    return plantedCrop->IsWatered();
+}

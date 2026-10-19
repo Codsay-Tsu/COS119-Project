@@ -171,11 +171,9 @@ int main()
                 std::cout << "\n";
             }
 
-            int plotChoice =
-                Helper::GetInt(1, pGarden.GetPlotCount());
+            int plotChoice = Helper::GetInt(1, pGarden.GetPlotCount());
 
-            Plot& selectedPlot =
-                pGarden.GetPlot(plotChoice - 1);
+            Plot& selectedPlot = pGarden.GetPlot(plotChoice - 1);
 
             if (selectedPlot.IsEmpty())
             {
@@ -189,6 +187,15 @@ int main()
             if (!Character.UseEnergy(1))
             {
                 std::cout << "Not enough energy!\n";
+
+                system("pause");
+
+                continue;
+            }
+
+            if (selectedPlot.IsWatered())
+            {
+                std::cout << "This plant has already been watered today!\n";
 
                 system("pause");
 

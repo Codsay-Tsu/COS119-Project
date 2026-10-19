@@ -21,5 +21,7 @@ public:
     void AdvanceDay();
 
     void WaterPlant();
+
+    bool IsWatered() const;
 };
 
