@@ -41,7 +41,15 @@ Next I plan on delving further into my inventory and shop as well as the functio
 
 ### Week 3
 
-Stay tuned, this stand up is coming soon...
+Good morning everyone! Last week I hit a lot of snags in my code that was a definite learning curve for me but I am working through it. There are a lot of things I wanted to implement last week in my project, but due to those circumstances I ended up not being able to get as far as I had wished. So this week I am going to be pushing myself extra hard to get those features updated as well as some of my code refactored!
+
+Speaking of, I want to tighten up some of my variable names. I didn't realize going into the project, even with planning, that I'd need so many more vectors than I realized, so I plan on fixing the names of some of them to make my code more readable. 
+
+This weeks plan and also what I am currently working on is a meaningful leveling system, and my main focus is getting the gardening plots working properly as they are the central core to any type of gameplay loop. Once that wall has been scaled I plan on increasing the amount and details of the items so they have a much more meaningful existence other than their current one which is basically just a name and a value.
+
+I am still struggling through my waves of syntax errors as I go, but this has truly made learning more efficient for myself. Even if my project isn't where I want it to be just yet, I have learned A LOT from making so many mistakes and the feedback each week has been very informative and helpful.
+
+As stated in some of my previous posts, I still need some practice with pointers, so this week I will also be looking into meaningful ways to use them in my project.
 
 ### Week 4
 
