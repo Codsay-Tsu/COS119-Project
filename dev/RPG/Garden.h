@@ -11,9 +11,7 @@ private:
 	std::vector<Plot> plots;
 
 public:
-
-	//Garden();
-
+	
 	Garden(int level, int plotCount);
 
 	void print_garden();

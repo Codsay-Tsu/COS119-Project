@@ -7,7 +7,7 @@ class Player
 {
 private:
     std::string name;
-    std::vector<Item> inventory;   // REAL inventory
+    std::vector<Item> inventory;
     int lvl;
     int mEN;
     int cEN;

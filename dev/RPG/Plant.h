@@ -15,10 +15,7 @@ private:
 
 public:
 
-    Plant(
-        std::string name,
-        int growthDays,
-        int sellValue);
+    Plant(std::string name, int growthDays, int sellValue);
 
     std::string GetName() const;
 
