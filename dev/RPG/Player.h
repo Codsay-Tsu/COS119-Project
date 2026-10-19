@@ -24,4 +24,14 @@ public:
 
     int GetBulbs() const { return bulbs; }//for displaying current amount of bulbs player has in the shop
 
+    std::vector<Item>& GetInventory();
+
+    bool HasItem(std::string itemName);
+
+    void RemoveItem(std::string itemName);
+
+    bool UseEnergy(int amount);
+
+    int GetCurrentEnergy() const;
+    
 };

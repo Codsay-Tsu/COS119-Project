@@ -13,3 +13,12 @@ void Item::AddAmount(int amt)
     amount += amt;
 }
 
+void Item::RemoveAmount(int amt)
+{
+    amount -= amt;
+
+    if (amount < 0)
+    {
+        amount = 0;
+    }
+}

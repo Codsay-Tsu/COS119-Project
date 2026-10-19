@@ -26,12 +26,14 @@ int main()
         system("cls");
 
         std::cout << "1) Display Garden Info\n";
-        std::cout << "2) Go to garden plots\n";
+        std::cout << "2) Plant Seed\n";//MAY NEED TO BE DELETED LATER AND FIX MENU
         std::cout << "3) Display Character Info\n";
         std::cout << "4) Visit Shop\n";
         std::cout << "5) View Inventory\n";
         std::cout << "6) Explanation\n";
         std::cout << "7) Exit\n\n";
+        std::cout << "8) Save\n";
+        std::cout << "9) Load\n";
 
         std::string currentChoice;
         std::cin >> currentChoice;
@@ -43,8 +45,116 @@ int main()
         }
         else if (currentChoice == "2")
         {
-            std::cout << "\nComing Soon!" << std::endl;
-            system("pause");
+            system("cls");
+
+            auto& inventory = Character.GetInventory();
+
+            if (inventory.empty())
+            {
+                std::cout << "You do not have any seeds!\n";
+                system("pause");
+                continue;
+            }
+
+            std::cout << "=== Select Seed ===\n\n";
+
+            for (int i = 0; i < inventory.size(); i++)
+            {
+                if (inventory[i].GetAmount() > 0)
+                {
+                    std::cout
+                        << i + 1
+                        << ") "
+                        << inventory[i].GetName()
+                        << " x"
+                        << inventory[i].GetAmount()
+                        << "\n";
+                }
+            }
+
+            int seedChoice = Helper::GetInt(1, inventory.size());
+
+            Item& selectedSeed = inventory[seedChoice - 1];
+
+            system("cls");
+
+            std::cout << "=== Select Plot ===\n\n";
+
+            for (int i = 0; i < pGarden.GetPlotCount(); i++)
+            {
+                std::cout << i + 1 << ") ";
+
+                pGarden.GetPlot(i).DisplayPlot();
+
+                std::cout << "\n";
+            }
+
+            int plotChoice =
+                Helper::GetInt(1, pGarden.GetPlotCount());
+
+            Plot& selectedPlot =
+                pGarden.GetPlot(plotChoice - 1);
+
+            if (!selectedPlot.IsEmpty())
+            {
+                std::cout
+                    << "That plot already contains a plant!\n";
+
+                system("pause");
+                continue;
+            }
+
+            if (!Character.UseEnergy(2))
+            {
+                std::cout
+                    << "Not enough energy!\n";
+
+                system("pause");
+                continue;
+            }
+
+            Plant* newPlant = nullptr;
+
+            if (selectedSeed.GetName() == "Kale Seed")
+            {
+                newPlant = new Plant(
+                    "Kale",
+                    3,
+                    12);
+            }
+            else if (selectedSeed.GetName() == "Tomato Seed")
+            {
+                newPlant = new Plant(
+                    "Tomato",
+                    5,
+                    20);
+            }
+            else if (selectedSeed.GetName() == "Green Bean Seed")
+            {
+                newPlant = new Plant(
+                    "Green Bean",
+                    4,
+                    15);
+            }
+
+            if (newPlant != nullptr)
+            {
+                selectedPlot.PlantCrop(newPlant);
+
+                Character.RemoveItem(
+                    selectedSeed.GetName());
+
+                std::cout
+                    << selectedSeed.GetName()
+                    << " planted successfully!\n";
+
+                std::cout
+                    << "Energy Remaining: "
+                    << Character.GetCurrentEnergy()
+                    << "\n";
+
+                system("pause");
+            }
         }
         else if (currentChoice == "3")
         {

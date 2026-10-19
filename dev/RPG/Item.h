@@ -16,5 +16,6 @@ public:
     int GetValue() const;
     int GetAmount() const;
     void AddAmount(int amt);
+    void RemoveAmount(int amt);
 };
 

@@ -17,5 +17,9 @@ public:
 	Garden(int level, int plotCount);
 
 	void print_garden();
+
+	Plot& GetPlot(int index);
+
+	int GetPlotCount() const;
 };
 

@@ -63,3 +63,50 @@ bool Player::SpendBulbs(int amount)
     }
     return false;
 }
+
+std::vector<Item>& Player::GetInventory()
+{
+    return inventory;
+}
+
+bool Player::HasItem(std::string itemName)
+{
+    for (const auto& item : inventory)
+    {
+        if (item.GetName() == itemName &&
+            item.GetAmount() > 0)
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+void Player::RemoveItem(std::string itemName)
+{
+    for (auto& item : inventory)
+    {
+        if (item.GetName() == itemName)
+        {
+            item.RemoveAmount(1);
+            return;
+        }
+    }
+}
+
+bool Player::UseEnergy(int amount)
+{
+    if (cEN < amount)
+    {
+        return false;
+    }
+
+    cEN -= amount;
+    return true;
+}
+
+int Player::GetCurrentEnergy() const
+{
+    return cEN;
+}

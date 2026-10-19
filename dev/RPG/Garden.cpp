@@ -30,3 +30,13 @@ void Garden::print_garden()
 
     system("pause");
 }
+
+Plot& Garden::GetPlot(int index)
+{
+    return plots[index];
+}
+
+int Garden::GetPlotCount() const
+{
+    return plots.size();
+}
