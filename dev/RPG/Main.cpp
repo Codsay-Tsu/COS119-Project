@@ -4,7 +4,8 @@
 #include "Garden.h"
 #include "Shop.h"
 #include "Helper.h"
-
+#include "Plant.h"
+#include "Plot.h"
 
 int main()
 {
@@ -42,7 +43,7 @@ int main()
         }
         else if (currentChoice == "2")
         {
-            std::cout << "\nComing Soon!";
+            std::cout << "\nComing Soon!" << std::endl;
             system("pause");
         }
         else if (currentChoice == "3")

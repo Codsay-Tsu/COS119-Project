@@ -1,17 +1,32 @@
 #include "Garden.h"
 #include <iostream>
 
-Garden::Garden(int GardenLvl, int MaxPlots)
+Garden::Garden(int level, int plotCount)
 {
-	this->GardenLvl = GardenLvl;
-	this->MaxPlots = MaxPlots;
+    this->level = level;
 
+    for (int i = 0; i < plotCount; i++)
+    {
+        plots.push_back(Plot());
+    }
 }
 
 void Garden::print_garden()
 {
-	system("cls");
-	std::cout << "Garden Level: " << GardenLvl << "\n";
-	std::cout << "MaxPlots:     " << MaxPlots << "\n";
-	system("pause");
+    std::cout << "Garden Level: "
+        << level
+        << "\n\n";
+
+    for (int i = 0; i < plots.size(); i++)
+    {
+        std::cout << "Plot "
+            << i + 1
+            << ": ";
+
+        plots[i].DisplayPlot();
+
+        std::cout << "\n";
+    }
+
+    system("pause");
 }
