@@ -110,3 +110,8 @@ void Player::Rest()
 {
     cEN = mEN;
 }
+
+void Player::AddBulbs(int amount)
+{
+    bulbs += amount;
+}

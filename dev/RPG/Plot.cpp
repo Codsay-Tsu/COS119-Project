@@ -57,3 +57,27 @@ bool Plot::IsWatered() const
 
     return plantedCrop->IsWatered();
 }
+
+Plant* Plot::HarvestCrop()
+{
+    if (plantedCrop == nullptr)
+    {
+        return nullptr;
+    }
+
+    Plant* harvestedPlant = plantedCrop;
+
+    plantedCrop = nullptr;
+
+    return harvestedPlant;
+}
+
+bool Plot::IsReadyToHarvest() const
+{
+    if (plantedCrop == nullptr)
+    {
+        return false;
+    }
+
+    return plantedCrop->IsGrown();
+}

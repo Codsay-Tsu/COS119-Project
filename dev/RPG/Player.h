@@ -35,4 +35,10 @@ public:
     int GetCurrentEnergy() const;
     
     void Rest();
+
+    void AddBulbs(int amount);
+
+    //void SellItem(std::string itemName);
+
+    //Item* FindItem(std::string itemName);
 };

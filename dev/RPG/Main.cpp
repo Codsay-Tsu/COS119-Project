@@ -34,6 +34,7 @@ int main()
         std::cout << "7) Explanation\n";
         std::cout << "8) Rest\n";
         std::cout << "9) Exit\n";
+        std::cout << "0) Harvest: THIS OPTION WILL CHANGE IN THE FUTURE";
 
         std::string currentChoice;
         std::cin >> currentChoice;
@@ -43,6 +44,7 @@ int main()
             system("cls");
             pGarden.print_garden();
         }
+        
         else if (currentChoice == "2")
         {
             system("cls");
@@ -131,6 +133,7 @@ int main()
                 system("pause");
             }
         }
+        
         else if (currentChoice == "3")
         {
             system("cls");
@@ -187,11 +190,13 @@ int main()
 
             system("pause");
         }
+        
         else if (currentChoice == "4")
         {
             system("cls");
             Character.print_character();
         }
+        
         else if (currentChoice == "5")
         {
             system("cls");
@@ -220,11 +225,13 @@ int main()
 
             system("pause");
         }
+        
         else if (currentChoice == "6")
         {
             Character.print_inventory();
 
         }
+        
         else if (currentChoice == "7")
         {
             system("cls");
@@ -252,10 +259,72 @@ int main()
             system("pause");
 
         }
+        
         else if (currentChoice == "9")
         {
             choosing = false;;
         }
+        
+        else if (currentChoice == "0")
+        {
+            system("cls");
+
+            std::cout << "=== Harvest Crop ===\n\n";
+
+            for (int i = 0; i < pGarden.GetPlotCount(); i++)
+            {
+                std::cout << i + 1 << ") ";
+
+                pGarden.GetPlot(i).DisplayPlot();
+
+                std::cout << "\n";
+            }
+
+            int plotChoice =
+                Helper::GetInt(1, pGarden.GetPlotCount());
+
+            Plot& selectedPlot =
+                pGarden.GetPlot(plotChoice - 1);
+
+            if (selectedPlot.IsEmpty())
+            {
+                std::cout << "That plot is empty!\n";
+
+                system("pause");
+
+                continue;
+            }
+
+            if (!selectedPlot.IsReadyToHarvest())
+            {
+                std::cout
+                    << "That crop is not fully grown yet!\n";
+
+                system("pause");
+
+                continue;
+            }
+
+            Plant* harvestedPlant =
+                selectedPlot.HarvestCrop();
+
+            Item harvestedCrop(
+                1,
+                harvestedPlant->GetSellValue(),
+                harvestedPlant->GetName(),
+                1);
+
+            Character.AddItem(harvestedCrop);
+
+            std::cout
+                << harvestedPlant->GetName()
+                << " harvested successfully!\n";
+
+            delete harvestedPlant;
+
+            system("pause");
+        }
+
         else
         {
             std::cout << "PLEASE ENTER A VALID MENU OPTION\n";

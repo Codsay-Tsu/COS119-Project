@@ -23,5 +23,9 @@ public:
     void WaterPlant();
 
     bool IsWatered() const;
+
+    Plant* HarvestCrop();
+
+    bool IsReadyToHarvest() const;
 };
 
