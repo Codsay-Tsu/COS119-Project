@@ -261,7 +261,89 @@ int main()
 
             else if (shopChoice == 2)
             {
-                //add selling here next
+                system("cls");
+
+                auto& inventory =
+                    Character.GetInventory();
+
+                std::vector<int> cropIndices;
+
+                std::cout
+                    << "=== Sell Crops ===\n\n";
+
+                int displayNumber = 1;
+
+                for (int i = 0; i < inventory.size(); i++)
+                {
+                    if (inventory[i].GetType() == CROP &&
+                        inventory[i].GetAmount() > 0)
+                    {
+                        cropIndices.push_back(i);
+
+                        std::cout
+                            << displayNumber
+                            << ") "
+                            << inventory[i].GetName()
+                            << " x"
+                            << inventory[i].GetAmount()
+                            << " ("
+                            << inventory[i].GetValue()
+                            << " bulbs each)\n";
+
+                        displayNumber++;
+                    }
+                }
+                //DEBUG
+                std::cout << "DEBUG INVENTORY:\n";
+
+                for (int i = 0; i < inventory.size(); i++)
+                {
+                    std::cout
+                        << inventory[i].GetName()
+                        << " Type: "
+                        << inventory[i].GetType()
+                        << "\n";
+                }
+                //DEBUG
+                if (cropIndices.empty())
+                {
+                    std::cout
+                        << "You have no crops to sell!\n";
+
+                    system("pause");
+
+                    continue;
+                }
+
+                int choice =
+                    Helper::GetInt(
+                        1,
+                        cropIndices.size());
+
+                Item& selectedCrop =
+                    inventory[
+                        cropIndices[
+                            choice - 1]];
+
+                Character.AddBulbs(
+                    selectedCrop.GetValue());
+
+                Character.RemoveItem(
+                    selectedCrop.GetName());
+
+                std::cout
+                    << "\nSold "
+                    << selectedCrop.GetName()
+                    << " for "
+                    << selectedCrop.GetValue()
+                    << " bulbs!\n";
+
+                std::cout
+                    << "Current Bulbs: "
+                    << Character.GetBulbs()
+                    << "\n";
+
+                system("pause");
             }
         }
         ///////////////////////////////////////////////////////////////////////||--INVENTORY--||/////////////////////////////////////////////////////////////////////////////////////////////////////
