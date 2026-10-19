@@ -111,15 +111,15 @@ int main()
 
             if (selectedSeed.GetName() == "Kale Seed")
             {
-                newPlant = new Plant("Kale", 3, 12);
+                newPlant = new Plant("Kale", 3, 60);
             }
             else if (selectedSeed.GetName() == "Tomato Seed")
             {
-                newPlant = new Plant("Tomato", 5, 20);
+                newPlant = new Plant("Tomato", 4, 100);
             }
             else if (selectedSeed.GetName() == "Green Bean Seed")
             {
-                newPlant = new Plant("Green Bean", 4, 15);
+                newPlant = new Plant("Green Bean", 5, 150);
             }
 
             if (newPlant != nullptr)
@@ -208,16 +208,13 @@ int main()
             system("cls");
 
             std::cout << "=== Shop ===\n";
-            std::cout << "Bulbs: "
-                << Character.GetBulbs()
-                << "\n\n";
+            std::cout << "Bulbs: " << Character.GetBulbs() << "\n\n";
 
             std::cout << "1) Buy Seeds\n";
             std::cout << "2) Sell Crops\n";
             std::cout << "0) Leave\n\n";
 
-            int shopChoice =
-                Helper::GetInt(0, 2);
+            int shopChoice = Helper::GetInt(0, 2);
 
             if (shopChoice == 1)
             {
@@ -225,35 +222,26 @@ int main()
 
                 shop.ShowStock();
 
-                std::cout
-                    << "\nChoose item to buy (0 to cancel): ";
+                std::cout << "\nChoose item to buy (0 to cancel): ";
 
-                int choice =
-                    Helper::GetInt(
-                        0,
-                        shop.StockCount());
+                int choice = Helper::GetInt(0, shop.StockCount());
 
                 if (choice == 0)
                 {
                     continue;
                 }
 
-                Item item =
-                    shop.BuyItem(choice - 1);
+                Item item = shop.BuyItem(choice - 1);
 
                 if (Character.SpendBulbs(item.GetValue()))
                 {
                     Character.AddItem(item);
 
-                    std::cout
-                        << "Purchased "
-                        << item.GetName()
-                        << "!\n";
+                    std::cout << "Purchased " << item.GetName() << "!\n";
                 }
                 else
                 {
-                    std::cout
-                        << "Not enough bulbs!\n";
+                    std::cout << "Not enough bulbs!\n";
                 }
 
                 system("pause");
@@ -263,85 +251,46 @@ int main()
             {
                 system("cls");
 
-                auto& inventory =
-                    Character.GetInventory();
+                auto& inventory = Character.GetInventory();
 
                 std::vector<int> cropIndices;
 
-                std::cout
-                    << "=== Sell Crops ===\n\n";
+                std::cout << "=== Sell Crops ===\n\n";
 
                 int displayNumber = 1;
 
                 for (int i = 0; i < inventory.size(); i++)
                 {
-                    if (inventory[i].GetType() == CROP &&
-                        inventory[i].GetAmount() > 0)
+                    if (inventory[i].GetType() == CROP && inventory[i].GetAmount() > 0)
                     {
                         cropIndices.push_back(i);
 
-                        std::cout
-                            << displayNumber
-                            << ") "
-                            << inventory[i].GetName()
-                            << " x"
-                            << inventory[i].GetAmount()
-                            << " ("
-                            << inventory[i].GetValue()
-                            << " bulbs each)\n";
+                        std::cout << displayNumber << ") " << inventory[i].GetName() << " x" << inventory[i].GetAmount() << " (" << inventory[i].GetValue() << " bulbs each)\n";
 
                         displayNumber++;
                     }
                 }
-                //DEBUG
-                std::cout << "DEBUG INVENTORY:\n";
-
-                for (int i = 0; i < inventory.size(); i++)
-                {
-                    std::cout
-                        << inventory[i].GetName()
-                        << " Type: "
-                        << inventory[i].GetType()
-                        << "\n";
-                }
-                //DEBUG
+          
                 if (cropIndices.empty())
                 {
-                    std::cout
-                        << "You have no crops to sell!\n";
+                    std::cout << "You have no crops to sell!\n";
 
                     system("pause");
 
                     continue;
                 }
 
-                int choice =
-                    Helper::GetInt(
-                        1,
-                        cropIndices.size());
+                int choice = Helper::GetInt(1, cropIndices.size());
 
-                Item& selectedCrop =
-                    inventory[
-                        cropIndices[
-                            choice - 1]];
+                Item& selectedCrop = inventory[cropIndices[choice - 1]];
 
-                Character.AddBulbs(
-                    selectedCrop.GetValue());
+                Character.AddBulbs(selectedCrop.GetValue());
 
-                Character.RemoveItem(
-                    selectedCrop.GetName());
+                Character.RemoveItem(selectedCrop.GetName());
 
-                std::cout
-                    << "\nSold "
-                    << selectedCrop.GetName()
-                    << " for "
-                    << selectedCrop.GetValue()
-                    << " bulbs!\n";
+                std::cout << "\nSold " << selectedCrop.GetName() << " for " << selectedCrop.GetValue() << " bulbs!\n";
 
-                std::cout
-                    << "Current Bulbs: "
-                    << Character.GetBulbs()
-                    << "\n";
+                std::cout << "Current Bulbs: " << Character.GetBulbs() << "\n";
 
                 system("pause");
             }

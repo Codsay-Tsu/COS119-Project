@@ -3,9 +3,9 @@
 
 Shop::Shop()
 {
-    stock.push_back(Item(SEED, 1, 5, "Kale Seed", 1));
-    stock.push_back(Item(SEED, 1, 8, "Tomato Seed", 1));
-    stock.push_back(Item(SEED, 2, 12, "Green Bean Seed", 1));
+    stock.push_back(Item(SEED, 1, 50, "Kale Seed", 1));
+    stock.push_back(Item(SEED, 1, 75, "Tomato Seed", 1));
+    stock.push_back(Item(SEED, 2, 100, "Green Bean Seed", 1));
 }
 
 void Shop::ShowStock() const
