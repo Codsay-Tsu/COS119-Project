@@ -19,5 +19,7 @@ public:
     void DisplayPlot() const;
 
     void AdvanceDay();
+
+    void WaterPlant();
 };
 

@@ -26,14 +26,14 @@ int main()
         system("cls");
 
         std::cout << "1) Display Garden Info\n";
-        std::cout << "2) Plant Seed\n";//MAY NEED TO BE DELETED LATER AND FIX MENU
-        std::cout << "3) Display Character Info\n";
-        std::cout << "4) Visit Shop\n";
-        std::cout << "5) View Inventory\n";
-        std::cout << "6) Explanation\n";
-        std::cout << "7) Exit\n\n";
-        std::cout << "8) Rest For The Day\n";
-        std::cout << "9) Load\n";
+        std::cout << "2) Plant Seed\n";
+        std::cout << "3) Water Plant\n";
+        std::cout << "4) Display Character Info\n";
+        std::cout << "5) Visit Shop\n";
+        std::cout << "6) View Inventory\n";
+        std::cout << "7) Explanation\n";
+        std::cout << "8) Rest\n";
+        std::cout << "9) Exit\n";
 
         std::string currentChoice;
         std::cin >> currentChoice;
@@ -159,9 +159,58 @@ int main()
         else if (currentChoice == "3")
         {
             system("cls");
-            Character.print_character();
+
+            std::cout << "=== Water Plant ===\n\n";
+
+            for (int i = 0; i < pGarden.GetPlotCount(); i++)
+            {
+                std::cout << i + 1 << ") ";
+
+                pGarden.GetPlot(i).DisplayPlot();
+
+                std::cout << "\n";
+            }
+
+            int plotChoice =
+                Helper::GetInt(1, pGarden.GetPlotCount());
+
+            Plot& selectedPlot =
+                pGarden.GetPlot(plotChoice - 1);
+
+            if (selectedPlot.IsEmpty())
+            {
+                std::cout << "There is nothing planted in that plot!\n";
+
+                system("pause");
+
+                continue;
+            }
+
+            if (!Character.UseEnergy(1))
+            {
+                std::cout << "Not enough energy!\n";
+
+                system("pause");
+
+                continue;
+            }
+
+            selectedPlot.WaterPlant();
+
+            std::cout << "Plant watered successfully!\n";
+
+            std::cout << "Energy Remaining: "
+                << Character.GetCurrentEnergy()
+                << "\n";
+
+            system("pause");
         }
         else if (currentChoice == "4")
+        {
+            system("cls");
+            Character.print_character();
+        }
+        else if (currentChoice == "5")
         {
             system("cls");
             std::cout << "Bulbs: " << Character.GetBulbs() << "\n\n";
@@ -188,13 +237,13 @@ int main()
             }
 
             system("pause");
-
-        }
-        else if (currentChoice == "5")
-        {
-            Character.print_inventory();
         }
         else if (currentChoice == "6")
+        {
+            Character.print_inventory();
+
+        }
+        else if (currentChoice == "7")
         {
             std::cout << "Welcome to Somnium Garden " << PlayerName << "!\n\n";
             std::cout << "There is still a lot of work to be done, but here is a breif explanation of statistics and features (MOST OF WHICH ARE NOT IMPLIMENTED YET)\n\n";
@@ -203,10 +252,6 @@ int main()
             std::cout << "Garden stats \n Level or lvl - increases as you harvest plants, increasing the garden level will increase the amount of plots available to you for planting \n";
             std::cout << "Max Plots - Current amount of plots you have available to you for planting seeds which you can purchase at the shop for Bulbs" << std::endl;
             system("pause");
-        }
-        else if (currentChoice == "7")
-        {
-            choosing = false;
         }
 
         else if (currentChoice == "8")
@@ -221,6 +266,10 @@ int main()
 
             system("pause");
 
+        }
+        else if (currentChoice == "9")
+        {
+            choosing = false;;
         }
         else
         {

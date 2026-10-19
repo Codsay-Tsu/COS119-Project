@@ -18,7 +18,12 @@ Plant::Plant(std::string name, int growthDays, int sellValue)
 
 void Plant::AdvanceDay()
 {
-    currentGrowth++;
+    if (wateredToday)
+    {
+        currentGrowth++;
+    }
+
+    wateredToday = false;
 }
 
 bool Plant::IsGrown() const
@@ -34,4 +39,14 @@ int Plant::GetCurrentGrowth() const
 int Plant::GetGrowthDays() const
 {
     return growthDays;
+}
+
+void Plant::Water()
+{
+    wateredToday = true;
+}
+
+bool Plant::IsWatered() const
+{
+    return wateredToday;
 }

@@ -35,3 +35,12 @@ void Plot::AdvanceDay()
         plantedCrop->AdvanceDay();
     }
 }
+
+void Plot::WaterPlant()
+{
+    if (plantedCrop != nullptr)
+    {
+        plantedCrop->Water();
+    }
+}
+

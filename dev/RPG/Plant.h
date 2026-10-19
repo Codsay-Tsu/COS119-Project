@@ -29,4 +29,9 @@ public:
     int GetCurrentGrowth() const;
 
     int GetGrowthDays() const;
+
+    void Water();
+
+    bool IsWatered() const;
+
 };
