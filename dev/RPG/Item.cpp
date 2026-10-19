@@ -1,6 +1,6 @@
 #include "Item.h"
 
-Item::Item(int pLvl, int value, std::string name, int amount) : pLvl(pLvl), value(value), name(name), amount(amount)
+Item::Item(ItemType type, int pLvl, int value, std::string name, int amount) : type(type), pLvl(pLvl), value(value), name(name), amount(amount)
 {
 }
 
@@ -13,3 +13,17 @@ void Item::AddAmount(int amt)
     amount += amt;
 }
 
+void Item::RemoveAmount(int amt)
+{
+    amount -= amt;
+
+    if (amount < 0)
+    {
+        amount = 0;
+    }
+}
+
+ItemType Item::GetType() const
+{
+    return type;
+}

@@ -7,7 +7,7 @@ class Player
 {
 private:
     std::string name;
-    std::vector<Item> inventory;   // REAL inventory
+    std::vector<Item> inventory;
     int lvl;
     int mEN;
     int cEN;
@@ -24,4 +24,21 @@ public:
 
     int GetBulbs() const { return bulbs; }//for displaying current amount of bulbs player has in the shop
 
+    std::vector<Item>& GetInventory();
+
+    bool HasItem(std::string itemName);
+
+    void RemoveItem(std::string itemName);
+
+    bool UseEnergy(int amount);
+
+    int GetCurrentEnergy() const;
+    
+    void Rest();
+
+    void AddBulbs(int amount);
+
+    //void SellItem(std::string itemName);
+
+    //Item* FindItem(std::string itemName);
 };
