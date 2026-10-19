@@ -62,13 +62,7 @@ int main()
             {
                 if (inventory[i].GetAmount() > 0)
                 {
-                    std::cout
-                        << i + 1
-                        << ") "
-                        << inventory[i].GetName()
-                        << " x"
-                        << inventory[i].GetAmount()
-                        << "\n";
+                    std::cout << i + 1 << ") " << inventory[i].GetName() << " x" << inventory[i].GetAmount() << "\n";
                 }
             }
 
@@ -89,16 +83,13 @@ int main()
                 std::cout << "\n";
             }
 
-            int plotChoice =
-                Helper::GetInt(1, pGarden.GetPlotCount());
+            int plotChoice = Helper::GetInt(1, pGarden.GetPlotCount());
 
-            Plot& selectedPlot =
-                pGarden.GetPlot(plotChoice - 1);
+            Plot& selectedPlot = pGarden.GetPlot(plotChoice - 1);
 
             if (!selectedPlot.IsEmpty())
             {
-                std::cout
-                    << "That plot already contains a plant!\n";
+                std::cout << "That plot already contains a plant!\n";
 
                 system("pause");
                 continue;
@@ -106,8 +97,7 @@ int main()
 
             if (!Character.UseEnergy(2))
             {
-                std::cout
-                    << "Not enough energy!\n";
+                std::cout << "Not enough energy!\n";
 
                 system("pause");
                 continue;
@@ -117,41 +107,26 @@ int main()
 
             if (selectedSeed.GetName() == "Kale Seed")
             {
-                newPlant = new Plant(
-                    "Kale",
-                    3,
-                    12);
+                newPlant = new Plant("Kale", 3, 12);
             }
             else if (selectedSeed.GetName() == "Tomato Seed")
             {
-                newPlant = new Plant(
-                    "Tomato",
-                    5,
-                    20);
+                newPlant = new Plant("Tomato", 5, 20);
             }
             else if (selectedSeed.GetName() == "Green Bean Seed")
             {
-                newPlant = new Plant(
-                    "Green Bean",
-                    4,
-                    15);
+                newPlant = new Plant("Green Bean", 4, 15);
             }
 
             if (newPlant != nullptr)
             {
                 selectedPlot.PlantCrop(newPlant);
 
-                Character.RemoveItem(
-                    selectedSeed.GetName());
+                Character.RemoveItem(selectedSeed.GetName());
 
-                std::cout
-                    << selectedSeed.GetName()
-                    << " planted successfully!\n";
+                std::cout << selectedSeed.GetName() << " planted successfully!\n";
 
-                std::cout
-                    << "Energy Remaining: "
-                    << Character.GetCurrentEnergy()
-                    << "\n";
+                std::cout << "Energy Remaining: " << Character.GetCurrentEnergy() << "\n";
 
                 system("pause");
             }
@@ -252,12 +227,15 @@ int main()
         }
         else if (currentChoice == "7")
         {
+            system("cls");
+
             std::cout << "Welcome to Somnium Garden " << PlayerName << "!\n\n";
             std::cout << "There is still a lot of work to be done, but here is a breif explanation of statistics and features (MOST OF WHICH ARE NOT IMPLIMENTED YET)\n\n";
-            std::cout << "Character stats \n Level or lvl - will effect your maximum amount of energy which will increase as you garden and gain exp. Allowing you to do more each day\n";
-            std::cout << "Energy - reduces as you perform garden actions and can only be refilled by resting\n Bulbs - This is used as currency for purchasing new seeds to plant, you can earn Bulbs by selling fully grown plants";
-            std::cout << "Garden stats \n Level or lvl - increases as you harvest plants, increasing the garden level will increase the amount of plots available to you for planting \n";
-            std::cout << "Max Plots - Current amount of plots you have available to you for planting seeds which you can purchase at the shop for Bulbs" << std::endl;
+            std::cout << "Character stats \nLevel or lvl - will effect your maximum amount of energy which will increase as you garden and gain exp. Allowing you to do more each day\n";
+            std::cout << "Energy - reduces as you perform garden actions and can only be refilled by resting\nBulbs - This is used as currency for purchasing new seeds to plant, you can earn Bulbs by selling fully grown plants\n\n";
+            std::cout << "Garden stats \nLevel or lvl - increases as you harvest plants, increasing the garden level will increase the amount of plots available to you for planting \n";
+            std::cout << "Plots - Current amount and status of plots you have available to you for planting seeds which can be purchased at the shop for Bulbs" << std::endl;
+            std::cout << "\n[UPDATE:] PLANTS MUST BE WATERED EACH DAY AFTER THEY ARE PLANTED OR THEY WILL NOT GROW!\n";
             system("pause");
         }
 
