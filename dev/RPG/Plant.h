@@ -31,4 +31,5 @@ public:
 
     bool IsWatered() const;
 
+    int GetSellValue() const;
 };

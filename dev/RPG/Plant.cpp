@@ -50,3 +50,8 @@ bool Plant::IsWatered() const
 {
     return wateredToday;
 }
+
+int Plant::GetSellValue() const
+{
+    return sellValue;
+}
