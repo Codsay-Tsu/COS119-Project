@@ -38,13 +38,15 @@ int main()
 
         std::string currentChoice;
         std::cin >> currentChoice;
+        ////////////////////////////////////////////////////////////////////||--GARDEN INFO--||///////////////////////////////////////////////////////////////////////////////////////////////////
 
         if (currentChoice == "1")
         {
             system("cls");
             pGarden.print_garden();
         }
-        
+        /////////////////////////////////////////////////////////////////////||--PLANT SEEDS--||/////////////////////////////////////////////////////////////////////////////////////////////////////
+
         else if (currentChoice == "2")
         {
             system("cls");
@@ -133,7 +135,9 @@ int main()
                 system("pause");
             }
         }
-        
+        ///////////////////////////////////////////////////////////////////////||--WATER PLANTS--||/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
         else if (currentChoice == "3")
         {
             system("cls");
@@ -190,48 +194,87 @@ int main()
 
             system("pause");
         }
-        
+        ///////////////////////////////////////////////////////////////////////||--CHARACTER INFO--||/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
         else if (currentChoice == "4")
         {
             system("cls");
             Character.print_character();
         }
-        
+        ///////////////////////////////////////////////////////////////////////||--SHOP--||/////////////////////////////////////////////////////////////////////////////////////////////////////
         else if (currentChoice == "5")
         {
             system("cls");
-            std::cout << "Bulbs: " << Character.GetBulbs() << "\n\n";
-            shop.ShowStock();
 
-            std::cout << "\nChoose item to buy (0 to cancel): ";
-            int choice = Helper::GetInt(0, shop.StockCount());
+            std::cout << "=== Shop ===\n";
+            std::cout << "Bulbs: "
+                << Character.GetBulbs()
+                << "\n\n";
 
-            if (choice == 0)
+            std::cout << "1) Buy Seeds\n";
+            std::cout << "2) Sell Crops\n";
+            std::cout << "0) Leave\n\n";
+
+            int shopChoice =
+                Helper::GetInt(0, 2);
+
+            if (shopChoice == 1)
             {
-                continue; // Cancel Command
+                system("cls");
+
+                shop.ShowStock();
+
+                std::cout
+                    << "\nChoose item to buy (0 to cancel): ";
+
+                int choice =
+                    Helper::GetInt(
+                        0,
+                        shop.StockCount());
+
+                if (choice == 0)
+                {
+                    continue;
+                }
+
+                Item item =
+                    shop.BuyItem(choice - 1);
+
+                if (Character.SpendBulbs(item.GetValue()))
+                {
+                    Character.AddItem(item);
+
+                    std::cout
+                        << "Purchased "
+                        << item.GetName()
+                        << "!\n";
+                }
+                else
+                {
+                    std::cout
+                        << "Not enough bulbs!\n";
+                }
+
+                system("pause");
             }
 
-            Item item = shop.BuyItem(choice - 1);
-
-            if (Character.SpendBulbs(item.GetValue()))
+            else if (shopChoice == 2)
             {
-                Character.AddItem(item);
-                std::cout << "Purchased " << item.GetName() << "!\n";
+                //add selling here next
             }
-            else
-            {
-                std::cout << "Not enough bulbs!\n";
-            }
-
-            system("pause");
         }
-        
+        ///////////////////////////////////////////////////////////////////////||--INVENTORY--||/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
         else if (currentChoice == "6")
         {
             Character.print_inventory();
 
         }
-        
+        ///////////////////////////////////////////////////////////////////////||--TUTORIAL AND UPDATES--||/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
         else if (currentChoice == "7")
         {
             system("cls");
@@ -245,6 +288,8 @@ int main()
             std::cout << "\n[UPDATE:] PLANTS MUST BE WATERED EACH DAY AFTER THEY ARE PLANTED OR THEY WILL NOT GROW!\n";
             system("pause");
         }
+        ///////////////////////////////////////////////////////////////////////||--REST--||///////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
         else if (currentChoice == "8")
         {
@@ -259,12 +304,16 @@ int main()
             system("pause");
 
         }
-        
+        ///////////////////////////////////////////////////////////////////////||--EXIT--||/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
         else if (currentChoice == "9")
         {
             choosing = false;;
         }
-        
+        ///////////////////////////////////////////////////////////////////////||--HARVEST--||////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
         else if (currentChoice == "0")
         {
             system("cls");
@@ -280,11 +329,9 @@ int main()
                 std::cout << "\n";
             }
 
-            int plotChoice =
-                Helper::GetInt(1, pGarden.GetPlotCount());
+            int plotChoice = Helper::GetInt(1, pGarden.GetPlotCount());
 
-            Plot& selectedPlot =
-                pGarden.GetPlot(plotChoice - 1);
+            Plot& selectedPlot = pGarden.GetPlot(plotChoice - 1);
 
             if (selectedPlot.IsEmpty())
             {
@@ -297,28 +344,20 @@ int main()
 
             if (!selectedPlot.IsReadyToHarvest())
             {
-                std::cout
-                    << "That crop is not fully grown yet!\n";
+                std::cout << "That crop is not fully grown yet!\n";
 
                 system("pause");
 
                 continue;
             }
 
-            Plant* harvestedPlant =
-                selectedPlot.HarvestCrop();
+            Plant* harvestedPlant = selectedPlot.HarvestCrop();
 
-            Item harvestedCrop(
-                1,
-                harvestedPlant->GetSellValue(),
-                harvestedPlant->GetName(),
-                1);
+            Item harvestedCrop(CROP, 1, harvestedPlant->GetSellValue(), harvestedPlant->GetName(), 1);
 
             Character.AddItem(harvestedCrop);
 
-            std::cout
-                << harvestedPlant->GetName()
-                << " harvested successfully!\n";
+            std::cout << harvestedPlant->GetName() << " harvested successfully!\n";
 
             delete harvestedPlant;
 
