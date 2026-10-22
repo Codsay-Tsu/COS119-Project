@@ -166,6 +166,15 @@ int main()
                 continue;
             }
 
+            if (selectedPlot.IsWatered())
+            {
+                std::cout << "This plant has already been watered today!\n";
+
+                system("pause");
+
+                continue;
+            }
+
             if (!Character.UseEnergy(1))
             {
                 std::cout << "Not enough energy!\n";
@@ -175,14 +184,7 @@ int main()
                 continue;
             }
 
-            if (selectedPlot.IsWatered())
-            {
-                std::cout << "This plant has already been watered today!\n";
-
-                system("pause");
-
-                continue;
-            }
+       
 
             selectedPlot.WaterPlant();
 
