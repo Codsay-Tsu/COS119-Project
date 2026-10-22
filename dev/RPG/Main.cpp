@@ -34,7 +34,7 @@ int main()
         std::cout << "7) Explanation\n";
         std::cout << "8) Rest\n";
         std::cout << "9) Exit\n";
-        std::cout << "0) Harvest: THIS OPTION WILL CHANGE IN THE FUTURE";
+        std::cout << "0) Harvest" << std::endl;
 
         std::string currentChoice;
         std::cin >> currentChoice;
