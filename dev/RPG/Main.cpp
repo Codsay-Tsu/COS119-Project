@@ -34,7 +34,7 @@ int main()
         std::cout << "7) Explanation\n";
         std::cout << "8) Rest\n";
         std::cout << "9) Exit\n";
-        std::cout << "0) Harvest: THIS OPTION WILL CHANGE IN THE FUTURE";
+        std::cout << "0) Harvest" << std::endl;
 
         std::string currentChoice;
         std::cin >> currentChoice;
@@ -166,6 +166,15 @@ int main()
                 continue;
             }
 
+            if (selectedPlot.IsWatered())
+            {
+                std::cout << "This plant has already been watered today!\n";
+
+                system("pause");
+
+                continue;
+            }
+
             if (!Character.UseEnergy(1))
             {
                 std::cout << "Not enough energy!\n";
@@ -175,14 +184,7 @@ int main()
                 continue;
             }
 
-            if (selectedPlot.IsWatered())
-            {
-                std::cout << "This plant has already been watered today!\n";
-
-                system("pause");
-
-                continue;
-            }
+       
 
             selectedPlot.WaterPlant();
 

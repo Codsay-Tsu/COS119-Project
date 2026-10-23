@@ -53,4 +53,10 @@ As stated in some of my previous posts, I still need some practice with pointers
 
 ### Week 4
 
-My final stand up...
+My project ended up being much larger and more complex than I had originally anticipated it being. That however has given me a lot of practice in my weakest areas of programing. I do feel much more confident in those skills than I had previously. My Project is all but finished, I'm sure there are some sneaky bugs that I did not discover but I will continue working on it afterwards for more practice. I'll continue to break it, expand on it and practice new techniques I learn. This project has been the greatest challenge so far in my degree program but has also been the most enlightening.
+
+This week i've worked on squashing some lingering bugs and trying to make a few improvements to make it look a little nicer.
+
+Finding the bug itself took some tracking down, however once I finally located the issue using break points, the fix ended up being surprisingly simple. I just had to swap to code blocks that were already there and nothing else needed to be changed!
+
+I am not sure if I will continue working on this project after this course. Not because I don't like it but I feel like now I can look at an empty lot of files with some clearer eyes and have a bit more knowledge on what needs to be done. I think instead I may work on another project idea I had when we originally started this course and then compare the two once that is finished.
